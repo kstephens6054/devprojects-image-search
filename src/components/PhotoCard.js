@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 
-import { photoPropType } from './propTypes';
+import { photoPropTypes } from './propTypes';
 
 const PhotoCard = ({ photo }) => {
   return (
@@ -28,7 +28,7 @@ const PhotoCard = ({ photo }) => {
 };
 
 PhotoCard.propTypes = {
-  photo: photoPropType
+  photo: photoPropTypes
 };
 
 export default PhotoCard;

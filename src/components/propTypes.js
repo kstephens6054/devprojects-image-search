@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const photoPropType = PropTypes.shape({
+const photoPropTypes = PropTypes.shape({
   id: PropTypes.string.isRequired,
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
@@ -10,6 +10,11 @@ const photoPropType = PropTypes.shape({
   credit: PropTypes.string
 });
 
-const photosPropType = PropTypes.arrayOf(photoPropType).isRequired;
+const photosPropTypes = PropTypes.arrayOf(photoPropTypes).isRequired;
 
-export { photoPropType, photosPropType };
+const searchBoxPropTypes = {
+  onSearch: PropTypes.func.isRequired,
+  size: PropTypes.string
+};
+
+export { photoPropTypes, photosPropTypes, searchBoxPropTypes };
