@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import 'semantic-ui-css';
 import './index.css';
+
+import { UnsplashSearchProvider } from './hooks/unsplash/search';
+import { UnsplashPhotosProvider } from './hooks/unsplash/photos';
+import { UnsplashRandomPhotosProvider } from './hooks/unsplash/randomPhotos';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <UnsplashSearchProvider>
+      <UnsplashPhotosProvider>
+        <UnsplashRandomPhotosProvider>
+          <App />
+        </UnsplashRandomPhotosProvider>
+      </UnsplashPhotosProvider>
+    </UnsplashSearchProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
