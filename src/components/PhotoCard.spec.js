@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import PhotoCard from './PhotoCard';
 
@@ -18,8 +18,8 @@ describe('PhotoCard component', () => {
   });
 
   it('should render the photo', () => {
-    render(<PhotoCard photo={testPhoto} />);
-    const imageElement = screen.getByAltText(testPhoto.title);
+    const { getByAltText } = render(<PhotoCard photo={testPhoto} />);
+    const imageElement = getByAltText(testPhoto.title);
     expect(imageElement).toBeInTheDocument();
     expect(imageElement.src).toBe(testPhoto.url);
     expect(imageElement.classList).toContain('PhotoCard__image');

@@ -10,6 +10,6 @@ const photoPropType = PropTypes.shape({
   credit: PropTypes.string
 });
 
-const photosPropType = PropTypes.arrayOf(photoPropType);
+const photosPropType = PropTypes.arrayOf(photoPropType).isRequired;
 
 export { photoPropType, photosPropType };
