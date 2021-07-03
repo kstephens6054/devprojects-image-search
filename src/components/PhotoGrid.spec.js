@@ -8,7 +8,7 @@ describe('PhotoGrid component', () => {
       id: 'photo001',
       width: 1280,
       height: 720,
-      url: 'http://photos.example.com/photo001.png',
+      urls: { small: 'http://photos.example.com/photo001.png' },
       description: 'Yet another cat picture!',
       title: 'Boots',
       credit: 'Mr. Vittles'
@@ -17,7 +17,7 @@ describe('PhotoGrid component', () => {
       id: 'photo002',
       width: 1280,
       height: 720,
-      url: 'http://photos.example.com/photo002.png',
+      urls: { small: 'http://photos.example.com/photo002.png' },
       description: 'One more cat picture.',
       title: 'Mittens',
       credit: 'Dr. Snuffy'
@@ -26,7 +26,7 @@ describe('PhotoGrid component', () => {
       id: 'photo003',
       width: 1280,
       height: 720,
-      url: 'http://photos.example.com/photo003.png',
+      urls: { small: 'http://photos.example.com/photo003.png' },
       description: 'Thppt!',
       title: 'Bill the Cat',
       credit: 'Milo Bloom'

@@ -1,10 +1,18 @@
 import PropTypes from 'prop-types';
 
+const photoURLs = PropTypes.shape({
+  raw: PropTypes.string,
+  full: PropTypes.string,
+  regular: PropTypes.string,
+  small: PropTypes.string,
+  thumb: PropTypes.string
+});
+
 const photoPropTypes = PropTypes.shape({
   id: PropTypes.string.isRequired,
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
-  url: PropTypes.string.isRequired,
+  urls: photoURLs.isRequired,
   description: PropTypes.string,
   title: PropTypes.string,
   credit: PropTypes.string

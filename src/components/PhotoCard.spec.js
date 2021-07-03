@@ -7,7 +7,7 @@ describe('PhotoCard component', () => {
     id: 'photo001',
     width: 1280,
     height: 720,
-    url: 'http://photos.example.com/photo001.png',
+    urls: { small: 'http://photos.example.com/photo001.png' },
     description: 'Yet another cat picture!',
     title: 'Boots',
     credit: 'Mr. Vittles'
@@ -21,7 +21,7 @@ describe('PhotoCard component', () => {
     const { getByAltText } = render(<PhotoCard photo={testPhoto} />);
     const imageElement = getByAltText(testPhoto.title);
     expect(imageElement).toBeInTheDocument();
-    expect(imageElement.src).toBe(testPhoto.url);
+    expect(imageElement.src).toBe(testPhoto.urls.small);
     expect(imageElement.classList).toContain('PhotoCard__image');
   });
 

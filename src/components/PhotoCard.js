@@ -10,7 +10,7 @@ const PhotoCard = ({ photo }) => {
         <Card.Header className="PhotoCard__header">{photo.title}</Card.Header>
         <Image
           className="PhotoCard__image"
-          src={photo.url}
+          src={photo.urls.small}
           alt={photo.title}
           fluid={true}
         />
