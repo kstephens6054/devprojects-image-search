@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Container, Header } from 'semantic-ui-react';
+
+import { useUnsplashSearch } from './hooks/unsplash/search';
+
+import SearchBox from './components/SearchBox';
+import PhotoGrid from './components/PhotoGrid';
+
 import './App.css';
 
 function App() {
+  // { search, photos, metadata, error, isLoading }
+  const { search, photos } = useUnsplashSearch();
+
+  const onSearch = searchTerm => {
+    search({ query: { query: searchTerm } });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="App">
+      <Header>Unsplash Image Search</Header>
+      <SearchBox onSearch={onSearch} size="large" />
+      {photos && <PhotoGrid photos={photos} />}
+    </Container>
   );
 }
 
