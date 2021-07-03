@@ -10,8 +10,11 @@ describe('PhotoGrid component', () => {
       height: 720,
       urls: { small: 'http://photos.example.com/photo001.png' },
       description: 'Yet another cat picture!',
-      title: 'Boots',
-      credit: 'Mr. Vittles'
+      alt_description: 'Boots',
+      user: {
+        id: 'user001',
+        name: 'Mr. Vittles'
+      }
     },
     {
       id: 'photo002',
@@ -19,8 +22,11 @@ describe('PhotoGrid component', () => {
       height: 720,
       urls: { small: 'http://photos.example.com/photo002.png' },
       description: 'One more cat picture.',
-      title: 'Mittens',
-      credit: 'Dr. Snuffy'
+      alt_description: 'Mittens',
+      user: {
+        id: 'user002',
+        name: 'Dr. Snuffy'
+      }
     },
     {
       id: 'photo003',
@@ -28,8 +34,11 @@ describe('PhotoGrid component', () => {
       height: 720,
       urls: { small: 'http://photos.example.com/photo003.png' },
       description: 'Thppt!',
-      title: 'Bill the Cat',
-      credit: 'Milo Bloom'
+      alt_description: 'Bill the Cat',
+      user: {
+        id: 'user003',
+        name: 'Milo Bloom'
+      }
     }
   ];
 
@@ -43,10 +52,10 @@ describe('PhotoGrid component', () => {
     );
 
     testPhotos.forEach(photo => {
-      expect(getByText(photo.title)).toBeInTheDocument();
+      expect(getByText(photo.alt_description)).toBeInTheDocument();
       expect(getByText(photo.description)).toBeInTheDocument();
-      expect(getByAltText(photo.title)).toBeInTheDocument();
-      expect(getByText(new RegExp(photo.credit, 'i'))).toBeInTheDocument();
+      expect(getByAltText(photo.alt_description)).toBeInTheDocument();
+      expect(getByText(new RegExp(photo.user.name, 'i'))).toBeInTheDocument();
     });
   });
 });

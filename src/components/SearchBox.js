@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Input, Icon } from 'semantic-ui-react';
-
-import { searchBoxPropTypes } from './propTypes';
+import PropTypes from 'prop-types';
 
 function SearchBox({ onSearch, size }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -38,7 +37,7 @@ function SearchBox({ onSearch, size }) {
   return (
     <Input
       className="SearchBox"
-      size={size || 'small'}
+      size={size}
       icon={icon}
       placeholder="Search..."
       value={searchTerm}
@@ -48,6 +47,13 @@ function SearchBox({ onSearch, size }) {
   );
 }
 
-SearchBox.propTypes = searchBoxPropTypes;
+SearchBox.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+  size: PropTypes.oneOf(['mini', 'small', 'large', 'big', 'huge', 'massive'])
+};
+
+SearchBox.defaultProps = {
+  size: 'small'
+};
 
 export default SearchBox;

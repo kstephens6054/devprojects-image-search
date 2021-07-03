@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid } from 'semantic-ui-react';
 
 import PhotoCard from './PhotoCard';
-import { photosPropTypes } from './propTypes';
+import { unsplashPhotosPropType } from '../hooks/unsplash/propTypes';
 
 const PhotoGrid = ({ photos }) => {
   return (
@@ -16,6 +16,8 @@ const PhotoGrid = ({ photos }) => {
   );
 };
 
-PhotoGrid.propTypes = photosPropTypes;
+PhotoGrid.propTypes = {
+  photos: unsplashPhotosPropType
+};
 
 export default PhotoGrid;

@@ -9,8 +9,11 @@ describe('PhotoCard component', () => {
     height: 720,
     urls: { small: 'http://photos.example.com/photo001.png' },
     description: 'Yet another cat picture!',
-    title: 'Boots',
-    credit: 'Mr. Vittles'
+    alt_description: 'Boots',
+    user: {
+      id: 'user001',
+      name: 'Mr. Vittles'
+    }
   };
 
   it('should render without crashing', () => {
@@ -19,7 +22,7 @@ describe('PhotoCard component', () => {
 
   it('should render the photo', () => {
     const { getByAltText } = render(<PhotoCard photo={testPhoto} />);
-    const imageElement = getByAltText(testPhoto.title);
+    const imageElement = getByAltText(testPhoto.alt_description);
     expect(imageElement).toBeInTheDocument();
     expect(imageElement.src).toBe(testPhoto.urls.small);
     expect(imageElement.classList).toContain('PhotoCard__image');
@@ -27,7 +30,7 @@ describe('PhotoCard component', () => {
 
   it('should render the title', () => {
     const { getByText } = render(<PhotoCard photo={testPhoto} />);
-    const titleElement = getByText(testPhoto.title);
+    const titleElement = getByText(testPhoto.alt_description);
     expect(titleElement).toBeInTheDocument();
     expect(titleElement.classList).toContain('PhotoCard__header');
   });
@@ -41,7 +44,7 @@ describe('PhotoCard component', () => {
 
   it('should render the photo credits', () => {
     const { getByText } = render(<PhotoCard photo={testPhoto} />);
-    const creditElement = getByText(new RegExp(testPhoto.credit, 'i'));
+    const creditElement = getByText(new RegExp(testPhoto.user.name, 'i'));
     expect(creditElement).toBeInTheDocument();
     expect(creditElement.classList).toContain('PhotoCard__credit');
   });
