@@ -8,7 +8,7 @@ import { UnsplashRandomPhotosProvider } from './hooks/unsplash/randomPhotos';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import 'semantic-ui-css/semantic.css';
+import 'semantic-ui-less/semantic.less';
 import './index.css';
 
 ReactDOM.render(

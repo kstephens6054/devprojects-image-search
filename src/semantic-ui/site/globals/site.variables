@@ -1,0 +1,6 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+@primaryColor: hsl(215, 60%, 95%);
+@pageBackground: hsl(215, 20%, 20%);
