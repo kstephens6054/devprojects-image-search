@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 function SearchBox({ onSearch, size }) {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleChange = event => {
+  const handleChange = (event, data) => {
+    console.log(`data keys = ${Object.keys(data)}`);
+    console.log(`data.value = ${data.value}`);
     setSearchTerm(event.currentTarget.value);
   };
 
